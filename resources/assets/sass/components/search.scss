@@ -1,0 +1,22 @@
+.search {
+  display: flex;
+  height: 57px;
+}
+
+.search__input {
+  flex: 1;
+  padding: 0 20px;
+  border: 2px solid $green;
+  border-right: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  @include placeholder {
+    font-size: 17px;
+    letter-spacing: ls(25);
+  }
+}
+
+.search__btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

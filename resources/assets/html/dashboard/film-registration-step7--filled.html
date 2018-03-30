@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>OioiGuru</title>
+</head>
+
+<body>
+  <div class="dashboard">
+    <aside class="dashboard-sidebar">
+      <a class="dashboard-sidebar__top" href="/">
+        <div class="dashboard-sidebar__top-logo"> </div>
+        <div class="dashboard-sidebar__top-line"></div>
+        <div class="dashboard-sidebar__top-descr">
+          <p>OiOi.guru </p>
+          <p>Producer</p>
+        </div>
+      </a>
+      <div class="dashboard-sidebar__person">
+        <img class="dashboard-sidebar__person-img img-responsive" src="~img/dashboard/person-img.png" alt="">
+        <div class="dashboard-sidebar__name">David Medici </div>
+        <div class="dashboard-sidebar__tel"> +1 541-754-3010 </div>
+      </div>
+      <ul class="dashboard-sidebar__menu">
+        <li>
+          <a>
+            <i class="cinema-icon"></i>My Films</a>
+        </li>
+        <li>
+          <a>
+            <i class="user-icon"></i>My Profile</a>
+        </li>
+      </ul>
+      <div class="text-align">
+        <button class="btn btn-dashboard-sidebar__register">Register new film</button>
+      </div>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__time-title">cycle is closing in
+          <i class="icon_info"></i>
+        </div>
+        <ul class="dashboard-sidebar__timer" id="countdown">
+          <li>
+            <div class="dashboard-sidebar-timer__num days">45</div>
+            <div class="dashboard-sidebar-timer__label">days</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num hours">06</div>
+            <div class="dashboard-sidebar-timer__label">hours</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num minutes">12</div>
+            <div class="dashboard-sidebar-timer__label">min</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num seconds">56</div>
+            <div class="dashboard-sidebar-timer__label">sec</div>
+          </li>
+        </ul>
+        <button class="btn btn-dashboard-sidebar__logout">
+          <i class="icon-logout"> </i>
+          <span>Log Out </span>
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-content">
+      <h1 class="dashboard-title">Film Registration </h1>
+      <div class="dashboard-content__inner">
+        <div class="dashboard-content__inner-nxt">
+          <div class="dashboard-content__steps">
+            <h2 class="dashboard__steps-title">Steps</h2>
+            <ul class="dashboard__steps-list">
+              <li class="active save disabled">General Info</li>
+              <li class="active save disabled"> Producer</li>
+              <li class="active save disabled">Director</li>
+              <li class="active save disabled">Writer</li>
+              <li class="active save disabled">DOP</li>
+              <li class="active save disabled">Budget</li>
+              <li class="active">Detailed Info</li>
+            </ul>
+          </div>
+          <div class="dashboard-content__info">
+            <h2 class="dashboard__info-title">Detailed Info</h2>
+            <form class="dashboard__info-form" action="" method="post" enctype="multipart/form-data">
+              <div class="dashboard__info-form__inner dashboard__info-form__inner--step7">
+
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full">
+                  <p class="dashboard__info-form-descr">Logline
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <textarea name="" id=""></textarea>
+                </div>
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full">
+                  <p class="dashboard__info-form-descr">Synopsis
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <textarea name="" id=""></textarea>
+                </div>
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full">
+                  <p class="dashboard__info-form-descr">Additional info
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <textarea name="" id=""></textarea>
+                </div>
+
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+                  <p class="dashboard__info-form-descr">Thumbnail (cover poster)
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <div class="dropzone dashboard__info-file">
+                    <span>Drag here, or</span>
+                    <input type="file" name="file" accept="image/jpeg,image/png" id="input-thumbnail">
+                    <label for="input-thumbnail" class="block">upload</label>
+                    <p class="form__file-descr">Min size 600x600 px JPEG / PNG</p>
+                    <div class="form__file-previews"></div>
+                  </div>
+                </div>
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+                  <p class="dashboard__info-form-descr">Artwork of the film
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <div class="dropzone dashboard__info-file">
+                    <span>Drag it here, or</span>
+                    <input type="file" name="file" accept="application/zip,application/x-rar-compressed" id="input-artwork-film">
+                    <label for="input-artwork-film" class="block">upload</label>
+                    <p class="form__file-descr">Max size 10 mb <br>RAR / ZIP archives</p>
+                    <div class="form__file-previews"></div>
+                  </div>
+                </div>
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+                  <p class="dashboard__info-form-descr">Script
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <div class="dropzone dashboard__info-file">
+                    <span>Drag it here, or</span>
+                    <input type="file" name="file" accept="application/msword,text/plain,application/pdf" id="input-script">
+                    <label for="input-script" class="block">upload</label>
+                    <p class="form__file-descr">Max size 10 mb <br>PDF / DOC(X) / TXT</p>
+                    <div class="form__file-previews"></div>
+                  </div>
+                </div>
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                  <p class="dashboard__info-form-descr">Finance plan
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <div class="dropzone dashboard__info-file">
+                    <span>Drag here, or</span>
+                    <input type="file" name="file" accept="application/msword,application/pdf" id="input-finance-plan">
+                    <label for="input-finance-plan">upload</label>
+                    <p class="form__file-descr">Max size 10 mb • PDF / DOC(X)</p>
+                    <div class="form__file-previews"></div>
+                  </div>
+                </div>
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                  <p class="dashboard__info-form-descr">Budget (Detailed)
+                    <i class="icon_info-green icon_info-green--secondary"></i>
+                  </p>
+                  <div class="dropzone dashboard__info-file">
+                    <span>Drag here, or</span>
+                    <input type="file" name="file" accept="application/msword,application/pdf" id="input-budget">
+                    <label for="input-budget">upload</label>
+                    <p class="form__file-descr">Max size 10 mb • PDF / DOC(X)</p>
+                    <div class="form__file-previews"></div>
+                  </div>
+                </div>
+                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full flex">
+                  <input type="checkbox" name="" id="checkbox-step-7" checked disabeld>
+                  <label for="checkbox-step-7"></label>
+                  <div class="checkbox-descr">
+                    <p>I have read and agree with the
+                      <a href="">“Terms & Conditions & NDA”</a>
+                    </p>
+                    <p>Once you’ve agreed with the terms – you can’t unselect the check-box</p>
+                  </div>
+                </div>
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap dashboard__info-form-btn-wrap--table">
+                <button class="btn btn-primary step-save-btn" type="button">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

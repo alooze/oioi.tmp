@@ -1,0 +1,26 @@
+.timer {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  li {
+    @include flex(center, center, inline-flex);
+    flex-flow: column nowrap;
+    @include size(100px, 82px);
+
+    &:not(:last-child) {
+      border-right: 2px solid white;
+    }
+  }
+}
+
+.timer__num {
+  font-size: 48px;
+  font-weight: 200;
+}
+
+.timer__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: ls(100);
+}

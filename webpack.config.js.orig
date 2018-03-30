@@ -1,0 +1,288 @@
+<<<<<<< HEAD
+const path = require('path')
+const fs = require('fs')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const { basename } = path
+
+const TARGET = process.env.npm_lifecycle_event
+
+const generateHtmlWebpackPlugins = (templatesDirname, chunks = [], ext = '.pug') =>
+  fs.readdirSync(templatesDirname)
+    .filter(path => path.includes(ext))
+    .map(path => basename(path, ext))
+    .map(basename => new HtmlWebpackPlugin({
+      filename: `${basename}.html`,
+      template: `${templatesDirname}/${basename}${ext}`,
+      chunks: [...chunks, basename]
+    }))
+
+const entry = fs.readdirSync('src/js')
+  .filter(path => path.includes('.js'))
+  .map(path => basename(path, '.js'))
+  .reduce((acc, basename) => Object.assign(acc, {
+    [basename]: `./src/js/${basename}.js`
+  }), {})
+
+const sassLoader = {
+  loader: 'sass-loader',
+  options: {
+    sourceMap: true,
+    data: "@import '~sass/globals.scss';"
+  }
+}
+=======
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const path = require('path')
+const fs = require('fs')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const autoprefixer = require('autoprefixer')
+const { basename } = path
+
+const TARGET = process.env.npm_lifecycle_event
+
+const entry = fs.readdirSync('resources/assets/js')
+  .filter(path => path.includes('.js'))
+  .map(path => basename(path, '.js'))
+  .reduce((acc, basename) => Object.assign(acc, {
+    [basename]: [`./resources/assets/js/${basename}.js`]
+  }), {})
+
+const sassData = "@import '~sass/globals.scss';" // eslint-disable-line
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+
+const common = {
+  entry,
+  output: {
+    filename: 'js/[name].bundle.js',
+    path: path.resolve(__dirname, 'public'),
+    publicPath: '/'
+  },
+  plugins: [
+<<<<<<< HEAD
+    ...generateHtmlWebpackPlugins('src/pug/pages'),
+    ...generateHtmlWebpackPlugins('src/html/dashboard', ['dashboard'], '.html')
+=======
+      //new BundleAnalyzerPlugin()
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+        options: {
+          pretty: true
+        }
+      },
+      {
+        test: /\.(html)$/,
+        loader: 'html-loader'
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              //limit: 8192,
+              name: 'media/[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(eot|ttf|otf|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'media/[name].[ext]'
+        }
+      }
+    ]
+  },
+  resolve: {
+    alias: {
+<<<<<<< HEAD
+      img: path.resolve(__dirname, 'src/img'),
+      sass: path.resolve(__dirname, 'src/sass'),
+      js: path.resolve(__dirname, 'src/js')
+    }
+  }
+}
+
+if (TARGET === 'dev') {
+  const cssLoaders = [
+    { loader: 'style-loader' },
+    { loader: 'css-loader', options: { sourceMap: true } }
+  ]
+=======
+      img: path.resolve(__dirname, 'resources/assets/img'),
+      sass: path.resolve(__dirname, 'resources/assets/sass'),
+      js: path.resolve(__dirname, 'resources/assets/js')
+    }
+  }
+}
+
+
+
+if (TARGET === 'dev') {
+  const cssLoader = {
+    loader: 'css-loader',
+    options: {
+      sourceMap: true,
+    }
+  }
+  const sassLoader = {
+    loader: 'sass-loader',
+    options: {
+      sourceMap: true,
+      data: sassData
+    }
+  }
+  const entry = Object.entries(common.entry).reduce((acc, [key, val]) => Object.assign(acc, {
+    [key]: [...val, 'webpack-hot-middleware/client?reload=true&overlay=true']
+  }), {})
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+
+  module.exports = Object.assign(common, {
+    entry,
+    module: Object.assign(common.module, {
+      rules: [
+        ...common.module.rules,
+        {
+          test: /\.scss$/,
+<<<<<<< HEAD
+          use: [...cssLoaders, sassLoader]
+=======
+          use: ['style-loader', cssLoader, sassLoader]
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', cssLoader]
+        }
+      ]
+    }),
+    plugins: [
+      ...common.plugins,
+      new webpack.HotModuleReplacementPlugin()
+    ],
+<<<<<<< HEAD
+    devtool: 'cheap-module-eval-source-map',
+    devServer: {
+      // stats: 'errors-only',
+      stats: {
+        cached: false,
+        cachedAssets: false,
+        children: false,
+        hash: false,
+        version: false,
+        excludeAssets: /.hot-update.json/
+      },
+      overlay: true,
+      hot: true,
+      // for reloading on pug files changes when hmr enabled
+      contentBase: [path.join(__dirname, 'src', 'pug'), path.join(__dirname, 'src', 'html')],
+      watchContentBase: true,
+      proxy: {
+        '/api': 'http://localhost:3000'
+      }
+    }
+=======
+    devtool: 'cheap-module-eval-source-map'
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+  })
+}
+
+
+
+if (TARGET === 'build') {
+  const fallback = 'style-loader'
+<<<<<<< HEAD
+  const cssLoaders = [
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMap: true,
+        minimize: true
+      }
+    }
+  ]
+=======
+  const postLoader = {
+    loader: 'postcss-loader',
+    options: {
+      plugins: [
+        autoprefixer({
+          browsers:['> 1%', 'last 2 versions']
+        })
+      ],
+      sourceMap: true
+    }
+  }
+  const cssLoader = {
+    loader: 'css-loader',
+    options: {
+      sourceMap: true,
+      minimize: true
+    }
+  }
+  const sassLoader = {
+    loader: 'sass-loader',
+    options: {
+      sourceMap: true,
+      data: sassData
+    }
+  }
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+
+  module.exports = Object.assign(common, {
+    module: Object.assign(common.module, {
+      rules: [
+        ...common.module.rules,
+        {
+          test: /\.scss$/,
+<<<<<<< HEAD
+          use: ExtractTextPlugin.extract({
+            fallback,
+            use: [...cssLoaders, sassLoader]
+          })
+=======
+          use: ExtractTextPlugin.extract({ fallback, use: [ cssLoader, postLoader, sassLoader ] })
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+        },
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({ fallback, use: [ cssLoader, postLoader ] })
+        },
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel-loader'
+        }
+      ]
+    }),
+    devtool: 'source-map',
+    plugins: [
+      ...common.plugins,
+      new ExtractTextPlugin('css/[name].css'),
+<<<<<<< HEAD
+      new UglifyJsPlugin({
+=======
+      new UglifyJSPlugin({
+>>>>>>> 1860c7cd99ecca56b3eb373afeaf94a9aa53abd7
+        sourceMap: true
+      }),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      })
+    ]
+  })
+}

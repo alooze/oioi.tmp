@@ -1,0 +1,77 @@
+<div class="dashboard-content__info">
+  <h2 class="dashboard__info-title">Director</h2>
+
+  <div class="dashboard__info-form" v-if="directors.length > 0">
+    <div class="dashboard__info__table">
+      <div class="dashboard__info__table-div">Director name</div>
+      <div class="dashboard__info__table-div">IMDB link</div>
+      <div class="dashboard__info__table-div">Action</div>
+    </div>
+    <div class="dashboard__info-form__inner">
+      <ul class="dashboard__info__table-list">
+        <li v-for="director in directors">
+          <div class="dashboard__info__table-list-name">{{ director.firstname }} {{ director.lastname }}</div>
+          <div class="dashboard__info__table-list-link">
+            <button class="copy" v-bind:data-clipboard-text="director.imdb_link">Copy</button>
+          </div>
+          <div class="dashboard__info__table-list-action">
+            <button class="btn btn-edit" type="button" @click="$modal.show('add-form', {director})">Edit</button>
+            <button class="btn btn-del" type="button" @click="$modal.show('delete-dialog', {director})">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap dashboard__info-form-btn-wrap--table">
+      <button class="btn btn-secondary" type="button" @click="$modal.show('add-form')">
+        <span class="plus">+ </span>Add Director</button>
+      <button class="btn btn-primary arrow" type="submit"> Next</button>
+    </div>
+  </div>
+
+  <div class="dashboard__info-form" v-else>
+    <div class="dashboard__info-form__inner dashboard__info-form__inner--empty">
+      <img class="img-responsive dashboard-img-team__empty" src="~img/dashboard/dashboard-team.png" width="46">
+      <p class="dashboard__empty-descr">No director is added yet...</p>
+      <div class="justify-center">
+        <button class="btn btn-secondary" type="button" @click="$modal.show('add-form')">
+          <span class="plus">+ </span>Add Director</button>
+      </div>
+    </div>
+  </div>
+
+  <modal name="add-form" height="auto" @before-open="beforeOpen" @closed="closed" scrollable>
+    <add-form
+      :title="director.id ? 'Editing director' : 'Director'"
+      @close="$modal.hide('add-form')"
+    >
+
+      <div class="tabs-wrap">
+        <span>Director is:</span>
+        <div class="tabs-list">
+          <a
+            v-for="person in ['someone else']"
+            :class="{active: newDirectorIs === person}"
+            @click="newDirectorIs = person"
+          >{{ person }}</a>
+        </div>
+      </div>
+
+      <add-director-form
+        :initialValues="director"
+        @submit="onSubmit"
+        @cancel="$modal.hide('add-form')"
+      ></add-director-form>
+    </add-form>
+  </modal>
+
+  <modal name="delete-dialog" width="500" height="auto" @before-open="beforeOpen" @closed="closed">
+    <delete-dialog
+      title="Deleting director"
+      @confirm="remove(director)"
+      @cancel="$modal.hide('delete-dialog')"
+    >
+      Do you really want to delete
+      <b>{{ director.firstname }} {{ director.lastname }}</b> from the list?
+    </delete-dialog>
+  </modal>
+</div>

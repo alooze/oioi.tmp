@@ -1,0 +1,37 @@
+.tab-link {
+  display: inline-block;
+  padding: 15px 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: ls(20);
+  color: rgba($green, 0.5);
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+
+  & + & {
+    margin-left: 20px;
+  }
+
+  &:hover {
+    color: $green;
+  }
+
+  &.active {
+    color: $green;
+    border-color: $green;
+  }
+
+  &_sm {
+    padding: 8px 0;
+    font-size: 12px;
+    letter-spacing: ls(50);
+    border-width: 1px;
+  }
+}
+
+.tab-pane {
+  &:not(.active) {
+    display: none;
+  }
+}

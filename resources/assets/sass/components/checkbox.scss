@@ -1,0 +1,41 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  input {
+    display: none;
+  }
+}
+
+.checkbox__indicator {
+  @include size(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  border: 1px solid rgb(86, 171, 46);
+  cursor: pointer;
+
+  input:checked + & {
+    background-color: rgb(86, 171, 46);
+    position: relative;
+
+    &:before {
+        content: '';
+        background: image('/dashboard/check-checkbox.png') no-repeat center / contain;
+        display: block;
+        @include size(8px, 5.5px);
+    }
+  }
+
+  input:disabled + & {
+      background-color: rgb(140, 156, 142);
+      border: 1px solid rgb(140, 156, 142);
+  }
+}
+
+.checkbox__label {
+  margin-left: 7px;
+  font-size: 13px;
+}

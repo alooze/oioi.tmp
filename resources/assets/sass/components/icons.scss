@@ -1,0 +1,29 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+
+  &_info {
+    @include size(16px, 16px);
+    margin-top: -5px;
+    @include retina('icon-info.png', cover);
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &_info-green {
+    @include size(18px, 18px);
+    margin-top: -3px;
+    @include retina('icon-info-green.png', cover);
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

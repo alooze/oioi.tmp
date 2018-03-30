@@ -1,0 +1,47 @@
+.footer {
+  position: relative;
+  margin-top: 55px;
+  box-sizing: border-box;
+  background: $green;
+}
+
+.footer__logo-wrap {
+  @include size(128px, 128px);
+  @include position(absolute, -55px null null 50%);
+  z-index: 0;
+  border-radius: 50%;
+  background: $green;
+  transform: translateX(-50%);
+}
+
+.footer__logo {
+  margin: 30px auto;
+}
+
+.footer__container {
+  max-width: 676px;
+  margin: 0 auto;
+  padding-top: 52px;
+}
+
+.footer__nav {
+  color: white;
+  margin-bottom: 34px;
+}
+
+.footer__bottom-row {
+  @include flex(center, space-between);
+  height: 60px;
+  font-size: 12px;
+  color: rgba(white, 0.5);
+  border-top: 1px solid rgba(white, 0.3);
+
+  a {
+    color: inherit;
+
+    &:focus,
+    &:hover {
+      color: white;
+    }
+  }
+}

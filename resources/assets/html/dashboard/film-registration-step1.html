@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>OioiGuru</title>
+</head>
+
+<body>
+    <div class="dashboard">
+
+        <aside class="dashboard-sidebar">
+            <a class="dashboard-sidebar__top" href="/">
+                <div class="dashboard-sidebar__top-logo"> </div>
+                <div class="dashboard-sidebar__top-line"></div>
+                <div class="dashboard-sidebar__top-descr">
+                    <p>OiOi.guru </p>
+                    <p>Producer</p>
+                </div>
+            </a>
+            <div class="dashboard-sidebar__person">
+                <img class="dashboard-sidebar__person-img img-responsive" src="~img/dashboard/person-img.png" alt="">
+                <div class="dashboard-sidebar__name">David Medici </div>
+                <div class="dashboard-sidebar__tel"> +1 541-754-3010 </div>
+            </div>
+            <ul class="dashboard-sidebar__menu">
+                <li><a><i class="cinema-icon"></i>My Films</a></li>
+                <li> <a> <i class="user-icon"></i>My Profile</a></li>
+            </ul>
+            <div class="text-align">
+                <button class="btn btn-dashboard-sidebar__register">Register new film</button>
+            </div>
+            <div class="dashboard-sidebar__bottom">
+                <div class="dashboard-sidebar__time-title">cycle is closing in<i class="icon_info"></i></div>
+                <ul class="dashboard-sidebar__timer" id="countdown">
+                    <li>
+                        <div class="dashboard-sidebar-timer__num days">45</div>
+                        <div class="dashboard-sidebar-timer__label">days</div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-timer__num hours">06</div>
+                        <div class="dashboard-sidebar-timer__label">hours</div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-timer__num minutes">12</div>
+                        <div class="dashboard-sidebar-timer__label">min</div>
+                    </li>
+                    <li>
+                        <div class="dashboard-sidebar-timer__num seconds">56</div>
+                        <div class="dashboard-sidebar-timer__label">sec</div>
+                    </li>
+                </ul>
+                <button class="btn btn-dashboard-sidebar__logout"><i class="icon-logout"></i><span>Log Out</span></button>
+            </div>
+        </aside>
+
+        <div class="dashboard-content">
+            <h1 class="dashboard-title">Film Registration </h1>
+            <div class="dashboard-content__inner">
+                <div class="dashboard-content__inner-nxt">
+                    <div class="dashboard-content__steps">
+                        <h2 class="dashboard__steps-title">Steps</h2>
+                        <ul class="dashboard__steps-list">
+                            <li class="active save">General Info</li>
+                            <li>Producer</li>
+                            <li>Director</li>
+                            <li>Writer</li>
+                            <li>DOP</li>
+                            <li>Budget</li>
+                            <li>Detailed Info</li>
+                        </ul>
+                    </div>
+                    <div class="dashboard-content__info">
+                        <h2 class="dashboard__info-title">General Info</h2>
+
+                        <form class="dashboard__info-form" action="" method="post" enctype="multipart/form-data">
+                            <div class="dashboard__info-form__inner">
+                                <h3 class="dashboard__info-form-title">Project</h3>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                                    <p class="dashboard__info-form-descr">Title</p>
+                                    <input type="text">
+                                </div>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                                    <p class="dashboard__info-form-descr">Screenplay based on</p>
+                                    <select name="choose-or-add-yours" data-choices data-class-names-container-outer="choices choices_with-border" data-rules="required">
+                                      <option value="" selected disabled>Choose or add yours</option>
+                                      <option value="producer">Producer</option>
+                                      <option value="financier">Financier</option>
+                                      <option value="distributor">Distributor</option>
+                                      <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+                                    <p class="dashboard__info-form-descr">Country of production</p>
+                                    <select name="choose-country" data-choices data-class-names-container-outer="choices choices_with-border" data-rules="required">
+                                      <option value="" selected disabled>Choose country</option>
+                                      <option value="producer">Producer</option>
+                                      <option value="financier">Financier</option>
+                                      <option value="distributor">Distributor</option>
+                                      <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+                                    <p class="dashboard__info-form-descr">Project status</p>
+                                    <select name="choose-status" data-choices data-class-names-container-outer="choices choices_with-border" data-rules="required">
+                                      <option value="" selected disabled>Choose status</option>
+                                      <option value="Pre-development"> Pre-development    </option>
+                                      <option value="Announced"> Announced</option>
+                                      <option value="Pre-production">Pre-production</option>
+                                      <option value="Filming">Filming</option>
+                                    </select>
+                                </div>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+                                    <p class="dashboard__info-form-descr">Genre</p>
+                                    <select name="genre" data-choices data-class-names-container-outer="choices choices_with-border" data-rules="required">
+                                      <option value="" selected disabled>Autobiography</option>
+                                      <option value="producer">Producer</option>
+                                      <option value="financier">Financier</option>
+                                      <option value="distributor">Distributor</option>
+                                      <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <h3 class="dashboard__info-form-title">Elevator Pitch<i class="icon_info-green"></i></h3>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                                    <p class="dashboard__info-form-descr">Link on a pitch (max 3 min)</p>
+                                    <input type="text">
+                                </div>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                                    <p class="dashboard__info-form-descr">Password (if link is secured)</p>
+                                    <input type="text">
+                                </div>
+                                <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half dashboard__info-file"><span>or</span>
+                                    <input type="file" name="dashboard__info-upload" id="dashboard__info-upload">
+                                    <label for="dashboard__info-upload">Upload a file</label>
+                                    <div class="form__file-previews"></div>
+                                </div>
+                            </div>
+                            <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap">
+                                <button class="btn btn-primary" disabled type="button">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

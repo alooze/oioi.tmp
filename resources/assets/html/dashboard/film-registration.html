@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>OioiGuru</title>
+</head>
+
+<body>
+
+  <div class="dashboard" id="app">
+
+    <aside class="dashboard-sidebar">
+      <a class="dashboard-sidebar__top" href="/">
+        <div class="dashboard-sidebar__top-logo"> </div>
+        <div class="dashboard-sidebar__top-line"></div>
+        <div class="dashboard-sidebar__top-descr">
+          <p>OiOi.guru </p>
+          <p>Producer</p>
+        </div>
+      </a>
+      <div class="dashboard-sidebar__person">
+        <img class="dashboard-sidebar__person-img img-responsive" src="~img/dashboard/person-img.png" alt="">
+        <div class="dashboard-sidebar__name">David Medici </div>
+        <div class="dashboard-sidebar__tel"> +1 541-754-3010 </div>
+      </div>
+      <ul class="dashboard-sidebar__menu">
+        <li>
+          <a>
+            <i class="cinema-icon"></i>My Films</a>
+        </li>
+        <li>
+          <a>
+            <i class="user-icon"></i>My Profile</a>
+        </li>
+      </ul>
+      <div class="text-align">
+        <button class="btn btn-dashboard-sidebar__register">Register new film</button>
+      </div>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__time-title">cycle is closing in
+          <i class="icon_info"></i>
+        </div>
+        <ul class="dashboard-sidebar__timer" id="countdown">
+          <li>
+            <div class="dashboard-sidebar-timer__num days">45</div>
+            <div class="dashboard-sidebar-timer__label">days</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num hours">06</div>
+            <div class="dashboard-sidebar-timer__label">hours</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num minutes">12</div>
+            <div class="dashboard-sidebar-timer__label">min</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num seconds">56</div>
+            <div class="dashboard-sidebar-timer__label">sec</div>
+          </li>
+        </ul>
+        <button class="btn btn-dashboard-sidebar__logout">
+          <i class="icon-logout"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <form-submitted v-if="formSubmitted"></form-submitted>
+
+    <div class="dashboard-content" v-else>
+      <h1 class="dashboard-title">Film Registration</h1>
+      <div class="dashboard-content__inner">
+        <div class="dashboard-content__inner-nxt">
+
+          <steps-list :step-index.sync="stepIndex"></steps-list>
+
+          <!-- <div v-if="isLoading">Loading...</div> -->
+
+          <component :is="step"></component>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

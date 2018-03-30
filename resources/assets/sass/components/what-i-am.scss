@@ -1,0 +1,92 @@
+.what-i-am-wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.what-i-am {
+  @include position(absolute, 0 0 0 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: $transition-base;
+
+  &:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.what-i-am__bg-text {
+  @include position(absolute, 60px null null -32px);
+  z-index: -1;
+  font-size: 160px;
+  font-weight: bold;
+  color: rgba($green, 0.06);
+}
+
+.what-i-am__bg {
+  @include position(absolute, 60px 0 null null);
+  z-index: -1;
+}
+
+.what-i-am__container {
+  position: relative;
+  max-width: 905px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 110px;
+  height: 304px;
+}
+
+.what-i-am__your-steps {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: $green;
+}
+
+.what-i-am__push-button {
+  margin-bottom: 25px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.what-i-am__steps {
+  @include list-unstyled();
+  margin-bottom: 25px;
+  font-size: 21px;
+  line-height: 36px;
+}
+
+.what-i-am-indicators-wrapper {
+  max-width: 905px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  @include flex(center);
+}
+
+.what-i-am-indicators {
+  position: relative;
+  @include list-unstyled();
+  margin-left: -45px;
+  margin-top: 280px;
+
+  li {
+    @include size(8px, 8px);
+    background: rgba($green, 0.3);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.active,
+    &:hover {
+      background: $green;
+      border-color: $green;
+    }
+  }
+
+  li + li {
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,12 @@
+/vendor
+/.idea
+/node_modules
+*.log
+.htaccess
+/nbproject
+/nbproject/private/
+.ftpconfig
+.env
+/public/userfiles
+composer.lock
+composer.json

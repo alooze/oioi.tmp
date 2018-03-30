@@ -1,0 +1,27 @@
+.auth-page {
+  min-height: 100vh;
+  padding-top: 125px;
+  padding-bottom: 64px;
+  box-sizing: border-box;
+  @include flex(center, center);
+  background-image: linear-gradient(to right bottom, rgb(86,171,47), rgb(168,224,99));
+  color: white;
+}
+
+.auth-page__inner {
+  width: 694px;
+  padding-bottom: 45px;
+  background: white;
+  color: #000;
+  border-radius: 5px;
+
+  .auth-page_register & {
+    width: 962px;
+    padding-bottom: 0;
+  }
+
+  .auth-page_register-success & {
+    width: 522px;
+    padding-bottom: 0;
+  }
+}

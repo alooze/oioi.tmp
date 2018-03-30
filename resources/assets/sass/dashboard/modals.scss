@@ -1,0 +1,116 @@
+@import 'mixins';
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.modal-content {
+    display: inline-block;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 33px 48px 36px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.15;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.modal-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-weight: 400;
+    &--secondary {
+        margin-bottom: 10px;
+    }
+}
+
+.modal-descr {
+    font-size: 16px;
+    margin-bottom: 28px;
+    line-height: 1.5;
+    b {
+        font-weight: 600;
+    }
+    &--secondary {
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.modal-top {
+    margin-right: 18px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(220, 231, 216);
+    position: relative;
+}
+
+.modal-title-form {
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.modal-content--primary {
+    padding: 22px 14px 30px 32px;
+    color: #111;
+    text-align: left;
+    width: 600px;
+}
+
+.modal-close--primary {
+    top: -14px;
+    right: -14px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 0;
+}
+
+.img-mod-del {
+    width: 53px;
+}
+
+.modal-content--secondary {
+    border-radius: 6px;
+}
+
+.modal-content--preview {
+    width: 868px;
+    text-align: left;
+    padding: 0;
+}
+
+.modal-content-inner {
+    padding: 32px 32px 0;
+}
+
+.modal-open {
+    padding-right: 0 !important;
+}
+
+.modal-content__form {
+    @include clearfix;
+    >.dashboard__info-form-wrap--full:last-child {
+        margin-top: 7px;
+        margin-bottom: 0;
+    }
+}
+
+.v--modal-overlay {
+    padding-top: 30px;
+}
+
+.v--modal-overlay .v--modal-box {
+    overflow: visible !important;
+}

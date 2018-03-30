@@ -1,0 +1,67 @@
+.tippy-popper {
+  pointer-events: auto;
+}
+
+.tippy-tooltip.custom-theme {
+  max-width: 317px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  color: #111111;
+  text-align: left;
+  box-shadow: 0 4px 20px 4px rgba(0, 20, 60, 0.1),
+              0 4px 80px -8px rgba(0, 20, 60, 0.2);
+}
+
+@each $side in top right bottom left {
+  .tippy-popper[x-placement^=#{$side}] .tippy-tooltip.custom-theme .tippy-arrow {
+    border-#{$side}-color: white;
+  }
+}
+
+.tooltip-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tooltip-text {
+  margin-top: 0;
+  font-size: 14px;
+  line-height: 21px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.tooltip-link {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $green;
+  letter-spacing: ls(100);
+
+  &:hover,
+  &:focus {
+    color: $darkgreen;
+  }
+}
+
+.tooltip-close {
+  @include position(absolute, 0 0 null null);
+  @include size(48px, 48px);
+  @include flex(center, center);
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    fill: #a2a2a2;
+  }
+
+  &:hover svg {
+    fill: #c4363a;
+  }
+}

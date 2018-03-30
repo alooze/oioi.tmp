@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>OioiGuru</title>
+</head>
+
+<body>
+  <div class="dashboard">
+    <aside class="dashboard-sidebar">
+      <a class="dashboard-sidebar__top" href="/">
+        <div class="dashboard-sidebar__top-logo"></div>
+        <div class="dashboard-sidebar__top-line"></div>
+        <div class="dashboard-sidebar__top-descr">
+          <p>OiOi.guru </p>
+          <p>Producer</p>
+        </div>
+      </a>
+      <div class="dashboard-sidebar__person">
+        <img class="dashboard-sidebar__person-img img-responsive" src="~img/dashboard/person-img.png" alt="">
+        <div class="dashboard-sidebar__name">David Medici </div>
+        <div class="dashboard-sidebar__tel">+1 541-754-3010 </div>
+      </div>
+      <ul class="dashboard-sidebar__menu">
+        <li>
+          <a class="active">
+            <i class="cinema-icon"></i>My Films</a>
+        </li>
+        <li>
+          <a>
+            <i class="user-icon"></i>My Profile</a>
+        </li>
+      </ul>
+      <div class="text-align">
+        <button class="btn btn-dashboard-sidebar__register">Register new film</button>
+      </div>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__time-title">cycle is closing in
+          <i class="icon_info"></i>
+        </div>
+        <ul class="dashboard-sidebar__timer" id="countdown">
+          <li>
+            <div class="dashboard-sidebar-timer__num days">45</div>
+            <div class="dashboard-sidebar-timer__label">days</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num hours">06</div>
+            <div class="dashboard-sidebar-timer__label">hours</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num minutes">12</div>
+            <div class="dashboard-sidebar-timer__label">min</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num seconds">56</div>
+            <div class="dashboard-sidebar-timer__label">sec</div>
+          </li>
+        </ul>
+        <button class="btn btn-dashboard-sidebar__logout">
+          <i class="icon-logout"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-content">
+      <h1 class="dashboard-title">My Films</h1>
+
+      <div class="dashboard-content__inner js-no-films" hidden>
+        <dive class="flex-align-center dashboard__center">
+          <img class="img-responsive dashboard-img-team__empty" src="~img/dashboard/movie-clapper-open.png" width="46">
+          <p class="dashboard__empty-descr">No film is registered yet...</p>
+          <button class="btn btn-secondary" type="button">
+            <span class="plus">+ </span>Register new film</button>
+        </dive>
+      </div>
+
+      <form class="dashboard-content__inner dashboard-content__inner--secondary js-films-container">
+        <div class="dashboard__info__table dashboard__info__table--secondary">
+          <div class="dashboard__info__table-div dashboard__info__table-div--secondary">Thumbnail</div>
+          <div class="dashboard__info__table-div dashboard__info__table-div--secondary">Film Name</div>
+          <div class="dashboard__info__table-div dashboard__info__table-div--secondary">Producer</div>
+          <div class="dashboard__info__table-div dashboard__info__table-div--secondary">Last change</div>
+          <div class="dashboard__info__table-div dashboard__info__table-div--secondary">Status</div>
+          <div class="dashboard__info__table-div dashboard__info__table-div--secondary">Action</div>
+        </div>
+        <div class="dashboard__info-form__inner">
+          <ul class="dashboard__info__table-list dashboard__info__table-list--secondary">
+            <li>
+              <div class="dashboard__info__table-list-thumbnail">
+                <img src="~img/dashboard/preview.png" alt="" width="70">
+              </div>
+              <div class="dashboard__info__table-list-name">Slash: ‘The Cat in the Hat’</div>
+              <div class="dashboard__info__table-list-producer">David Medici, John Doe</div>
+              <div class="dashboard__info__table-list-last-change">02/09/2017 11:45</div>
+              <div class="dashboard__info__table-list-status">Submitted</div>
+              <div class="dashboard__info__table-list-action">
+                <a class="btn btn-edit btn-table-secondary" href="/preview.html">Preview</a>
+                <button class="btn btn-del btn-table-secondary" type="button" data-show-modal="delete-film-modal" data-action="/api/films/1/delete"
+                  data-title="Slash: ‘The Cat in the Hat’">Delete</button>
+              </div>
+            </li>
+            <li>
+              <div class="dashboard__info__table-list-thumbnail">
+                <img src="~img/dashboard/preview.png" alt="" width="70">
+              </div>
+              <div class="dashboard__info__table-list-name">The Song Remains the Same: Part 2</div>
+              <div class="dashboard__info__table-list-producer">Peter Clifton, Joe Massot</div>
+              <div class="dashboard__info__table-list-last-change">28/08/2017 04:23</div>
+              <div class="dashboard__info__table-list-status">In process...</div>
+              <div class="dashboard__info__table-list-action">
+                <button class="btn btn-edit btn-table-secondary" type="button">Edit</button>
+                <button class="btn btn-del btn-table-secondary" type="button" data-show-modal="delete-film-modal" data-action="/api/films/2/delete"
+                  data-title="The Song Remains the Same: Part 2">Delete</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="modal" id="delete-film-modal">
+    <div class="modal-dialog animated">
+      <div class="modal-content modal-content--secondary">
+        <img class="img-responsive" src="~img/dashboard/rubbish-bin.png" width="36">
+        <h2 class="modal-title">Deleting film</h2>
+        <p class="modal-descr modal-descr--secondary"> Do you really want to delete
+          <b class="js-film-title">The Song Remains the Same: Part 2</b> from the list?</p>
+        <div>
+          <button class="btn btn-del btn-del--mod js-film-delete" data-hide-modal> yes, delete</button>
+          <button class="btn btn-not-del-mod" data-hide-modal> No, don’t delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

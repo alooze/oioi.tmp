@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>OioiGuru</title>
+</head>
+
+<body>
+  <div class="dashboard">
+    <aside class="dashboard-sidebar">
+      <a class="dashboard-sidebar__top" href="/">
+        <div class="dashboard-sidebar__top-logo"> </div>
+        <div class="dashboard-sidebar__top-line"></div>
+        <div class="dashboard-sidebar__top-descr">
+          <p>OiOi.guru</p>
+          <p>Producer</p>
+        </div>
+      </a>
+      <div class="dashboard-sidebar__person">
+        <img class="dashboard-sidebar__person-img img-responsive" src="~img/dashboard/person-img.png" alt="">
+        <div class="dashboard-sidebar__name">David Medici </div>
+        <div class="dashboard-sidebar__tel">+1 541-754-3010 </div>
+      </div>
+      <ul class="dashboard-sidebar__menu">
+        <li>
+          <a>
+            <i class="cinema-icon"></i>My Films</a>
+        </li>
+        <li>
+          <a class="active">
+            <i class="user-icon"></i>My Profile</a>
+        </li>
+      </ul>
+      <div class="text-align">
+        <button class="btn btn-dashboard-sidebar__register">Register new film</button>
+      </div>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__time-title">cycle is closing in
+          <i class="icon_info"></i>
+        </div>
+        <ul class="dashboard-sidebar__timer" id="countdown">
+          <li>
+            <div class="dashboard-sidebar-timer__num days">45</div>
+            <div class="dashboard-sidebar-timer__label">days</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num hours">06</div>
+            <div class="dashboard-sidebar-timer__label">hours</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num minutes">12</div>
+            <div class="dashboard-sidebar-timer__label">min</div>
+          </li>
+          <li>
+            <div class="dashboard-sidebar-timer__num seconds">56</div>
+            <div class="dashboard-sidebar-timer__label">sec</div>
+          </li>
+        </ul>
+        <button class="btn btn-dashboard-sidebar__logout">
+          <i class="icon-logout"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-content">
+      <h1 class="dashboard-title">My Profile</h1>
+      <div class="dashboard-content__inner dashboard-content__inner--profile">
+
+        <form
+          class="dashboard-content__inner-nxt"
+          id="general-info"
+          action="http://httpbin.org/post"
+          method="POST"
+          enctype="multipart/form-data"
+          data-form-validate
+        >
+          <div class="dashboard-content__steps dashboard-content__steps--profile">
+            <div class="dropzone dashboard__info-file  dashboard__info-file--profile" id="user-avatar-uploader">
+              <span class="dashboard__info-file__img-thumbnail">Your image</span>
+              <span>Drag here, or</span>
+              <input type="file" name="file" accept="image/jpeg,image/png" id="input-thumbnail">
+              <label for="input-thumbnail" class="block">upload</label>
+              <p class="form__file-descr">Min size 320x320 px JPEG / PNG</p>
+
+              <div class="form__file-previews js-img-preview" hidden>
+                <img class="dashboard-sidebar__person-img img-responsive">
+                <div class="btn-img-change-wrap">
+                  <button type="button" class="btn btn-img-change btn-reload js-reload-img"></button>
+                  <button type="button" class="btn  btn-img-change btn-close js-remove-img"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-content__info dashboard-content__info--profile">
+            <h2 class="dashboard__info-title dashboard__info-title--secondary">General Info</h2>
+            <div class="dashboard__info-form__inner dashboard__info-form__inner--profile">
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half form-group">
+                <p class="dashboard__info-form-descr">First name *</p>
+                <input type="text" name="name" data-rules="required">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half form-group">
+                <p class="dashboard__info-form-descr">Last name *</p>
+                <input type="text" name="last_name" data-rules="required">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                <p class="dashboard__info-form-descr">Country</p>
+                <select
+                  name="country"
+                  data-choices
+                  data-class-names-container-outer="choices choices_with-border"
+                  data-search-enabled="true"
+                  data-rules="required"
+                >
+                  <option value selected disabled>Chooose Country</option>
+                  <option value="US">United States</option>
+                  <option value="AF">Afganistan</option>
+                </select>
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                <p class="dashboard__info-form-descr">Country of production</p>
+                <select
+                  name="city"
+                  data-choices
+                  data-class-names-container-outer="choices choices_with-border"
+                  data-search-enabled="true"
+                  data-rules="required"
+                >
+                  <option value selected disabled>Choose city</option>
+                </select>
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                <p class="dashboard__info-form-descr">Company</p>
+                <input type="text">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                <p class="dashboard__info-form-descr">IMDB link</p>
+                <input type="text">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full dashboard__info-form-wrap--h-line">
+                <button class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <form
+          class="dashboard-content__inner-nxt"
+          id="contact-details"
+          action="http://httpbin.org/post"
+          method="POST"
+          data-form-validate novalidate
+        >
+          <div class="dashboard-content__steps dashboard-content__steps--profile"></div>
+          <div class="dashboard-content__info dashboard-content__info--profile">
+            <h2 class="dashboard__info-title dashboard__info-title--secondary">Contact Details</h2>
+            <div class="dashboard__info-form__inner  dashboard__info-form__inner--profile">
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half form-group">
+                <p class="dashboard__info-form-descr">Email *</p>
+                <input type="email" name="email" data-rules="required|valid_email">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+                <p class="dashboard__info-form-descr">Mobile number</p>
+                <div class="number-fieldset">
+                  <select
+                    name="number_code"
+                    data-choices
+                    data-class-names-container-outer='choices choices_with-border'
+                    data-rules='required'
+                  >
+                    <option value="44" selected>+44</option>
+                    <option value="00">+00</option>
+                  </select>
+                  <input type="text" name="number">
+                </div>
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full dashboard__info-form-wrap--h-line">
+                <button class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <form
+          class="dashboard-content__inner-nxt"
+          id="change-password"
+          action="http://httpbin.org/post"
+          method="POST"
+          data-form-validate
+        >
+          <div class="dashboard-content__steps dashboard-content__steps--profile"></div>
+          <div class="dashboard-content__info dashboard-content__info--profile">
+            <h2 class="dashboard__info-title dashboard__info-title--secondary">Change Password</h2>
+            <div class="dashboard__info-form__inner  dashboard__info-form__inner--profile">
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third form-group">
+                <p class="dashboard__info-form-descr">Current password *</p>
+                <input type="password" name="password" data-rules="required">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third form-group">
+                <p class="dashboard__info-form-descr">New password *</p>
+                <input type="password" name="new_password" data-rules="required">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third form-group">
+                <p class="dashboard__info-form-descr">Repeat new password *</p>
+                <input type="password" name="password_confirm" data-rules="required">
+              </div>
+              <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full">
+                <button class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

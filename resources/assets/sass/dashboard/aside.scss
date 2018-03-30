@@ -1,0 +1,262 @@
+@import 'mixins';
+
+.dashboard-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding-top: 27px;
+    overflow-y: auto;
+    background-image: -moz-linear-gradient( -45deg, rgb(86, 171, 47) 0%, rgb(127, 198, 73) 30%, rgb(168, 224, 99) 100%);
+    background-image: -webkit-linear-gradient( -45deg, rgb(86, 171, 47) 0%, rgb(127, 198, 73) 30%, rgb(168, 224, 99) 100%);
+    background-image: -ms-linear-gradient( -45deg, rgb(86, 171, 47) 0%, rgb(127, 198, 73) 30%, rgb(168, 224, 99) 100%);
+    background-image: linear-gradient( 135deg, rgb(86, 171, 47) 0%, rgb(127, 198, 73) 30%, rgb(168, 224, 99) 100%);
+}
+
+.dashboard-sidebar__top {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    display: flex;
+    width: 175px;
+    justify-content: space-between;
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard-sidebar__top-logo {
+    background: image('logo@2x.png') no-repeat center;
+    background-size: contain;
+    width: 53px;
+    height: 32px;
+}
+
+.dashboard-sidebar__top-line {
+    background-color: rgb(187, 221, 172);
+    width: 1px;
+    height: 32px;
+}
+
+.dashboard-sidebar__top-descr {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.125;
+    letter-spacing: 0.4px;
+    p:last-child {
+        font-size: 13px;
+        opacity: 0.6;
+        font-weight: 400;
+        margin-top: 3px;
+    }
+}
+
+.dashboard-sidebar__person {
+    text-align: center;
+    margin-top: 43px;
+    margin-bottom: 32px;
+}
+
+.dashboard-sidebar__person-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dashboard-sidebar__person-img-placeholder {
+    i {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    span {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+    }
+}
+
+.dashboard-sidebar__name {
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 14px;
+    letter-spacing: 0.4px;
+    margin-bottom: 7px;
+}
+
+.dashboard-sidebar__tel {
+    font-size: 13px;
+    opacity: 0.6;
+    letter-spacing: 0.4px;
+}
+
+.dashboard-sidebar__menu {
+    list-style: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 18px;
+    li {
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        a {
+            opacity: 0.4;
+            font-size: 16px;
+            display: flex;
+            cursor: pointer;
+            transition: all .3s ease;
+            padding: 16px 30px;
+            line-height: 1;
+            align-items: center;
+            letter-spacing: 0.4px;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            &:hover {
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.102);
+            }
+            i {
+                margin-right: 10px;
+            }
+            &.active {
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.2);
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                }
+                &:before {
+                    content: '';
+                    background-color: white;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 4px;
+                }
+            }
+        }
+    }
+}
+
+.user-icon {
+    background: image('icon-user@2x.png') no-repeat center;
+    background-size: contain;
+    width: 16px;
+    height: 21px;
+    display: inline-block;
+}
+
+.cinema-icon {
+    background: image('icon-cinema.png') no-repeat center;
+    background-size: contain;
+    width: 20px;
+    height: 21px;
+    display: inline-block;
+}
+
+.btn-dashboard-sidebar__new-film {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgb(86, 171, 47);
+    text-transform: uppercase;
+    opacity: 0.7;
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    padding: 14px 45px;
+    letter-spacing: 1px;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.dashboard-sidebar__bottom {
+    margin-top: auto;
+}
+
+.dashboard-sidebar__time-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.702);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1.9px;
+    line-height: 1;
+    align-items: center;
+}
+
+.dashboard-sidebar__timer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    list-style: none;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.702);
+    li:not(:last-child) {
+        margin-right: 22px;
+    }
+}
+
+.dashboard-sidebar-timer__num {
+    font-size: 21px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.dashboard-sidebar-timer__label {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.icon_info {
+    background: image('icon-info@2x.png') no-repeat center;
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    opacity: 0.7;
+    transition: all .3s ease;
+    cursor: pointer;
+    margin-left: 7px;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.btn-dashboard-sidebar__logout {
+    width: 100%;
+    padding: 34px 65px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        opacity: 1;
+    }
+}
+
+.icon-logout {
+    background: image('icon-logout.png') no-repeat center;
+    background-size: contain;
+    width: 21px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    left: -11px;
+}

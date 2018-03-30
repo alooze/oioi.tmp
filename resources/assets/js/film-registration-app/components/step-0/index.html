@@ -1,0 +1,109 @@
+<div class="dashboard-content__info">
+  <h2 class="dashboard__info-title">General Info</h2>
+
+  <form class="dashboard__info-form" @submit.prevent="onSubmit" ref="form">
+    <div class="dashboard__info-form__inner">
+
+      <h3 class="dashboard__info-form-title">Project</h3>
+
+      <formgroup name="title" class="dashboard__info-form-wrap--half">
+        <p class="dashboard__info-form-descr">Title</p>
+        <input
+          type="text"
+          name="title"
+          v-model="title"
+          v-validate="'required'"
+        >
+      </formgroup>
+
+      <formgroup name="based_on" class="dashboard__info-form-wrap--half">
+        <p class="dashboard__info-form-descr">Screenplay based on</p>
+        <select
+          name="based_on"
+          v-model="basedOn"
+          v-validate="'required'"
+          data-choices
+          data-class-names-container-outer="choices choices_with-border"
+        >
+          <option value="" selected>Choose</option>
+          <option v-for="option in basedOnOptions" :value="option">{{ option }}</option>
+        </select>
+      </formgroup>
+
+      <formgroup name="country" class="dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">Country of production</p>
+        <select
+          name="country"
+          v-model="country"
+          v-validate="'required'"
+          data-choices
+          data-class-names-container-outer="choices choices_with-border"
+        >
+          <option value="" selected>Choose country</option>
+          <option :value="value" v-for="label, value in countries">{{ label }}</option>
+        </select>
+      </formgroup>
+
+      <formgroup name="project_status" class="dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">Project status</p>
+        <select
+          name="project_status"
+          v-model="projectStatus"
+          v-validate="'required'"
+          data-choices
+          data-class-names-container-outer="choices choices_with-border"
+        >
+          <option value="" selected>Choose status</option>
+          <option v-for="option in projectStatusOptions" :value="option">{{ option }}</option>
+        </select>
+      </formgroup>
+
+      <formgroup name="genre" class="dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">Genre</p>
+        <select
+          name="genre"
+          v-model="genre"
+          v-validate="'required'"
+          data-choices
+          data-class-names-container-outer="choices choices_with-border"
+        >
+          <option value="" selected>Choose genre</option>
+          <option v-for="option in genreOptions" :value="option">{{ option }}</option>
+        </select>
+      </formgroup>
+
+      <h3 class="dashboard__info-form-title">Elevator Pitch <i class="icon_info-green"></i></h3>
+
+      <formgroup name="pitch_link" class="dashboard__info-form-wrap--half">
+        <p class="dashboard__info-form-descr">Link on a pitch (max 3 min)</p>
+        <input
+          type="text"
+          name="pitch_link"
+          v-model="pitchLink"
+        >
+      </formgroup>
+
+      <formgroup name="pitch_pass" class="dashboard__info-form-wrap--half">
+        <p class="dashboard__info-form-descr">Password (if link is secured)</p>
+        <input
+          type="text"
+          name="pitch_pass"
+          v-model="pitchPass"
+        >
+      </formgroup>
+
+      <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+        <file-input
+          name="pitch_file"
+          :initialFilename="pitchFile | filename"
+          label="Upload a file"
+          span="or"
+        ></file-input>
+      </div>
+
+    </div>
+    <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap">
+      <button class="btn btn-primary" type="submit" :disabled="errors.any()">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,44 @@
+<form class="modal-content__form" @submit.prevent="onSubmit">
+  <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">First name</p>
+    <input
+      type="text"
+      name="firstname"
+      v-model="firstname"
+    >
+  </div>
+
+  <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Last name</p>
+    <input
+      type="text"
+      name="lastname"
+      v-model="lastname"
+    >
+  </div>
+
+  <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">IMDB link</p>
+    <input
+      type="text"
+      name="imdb_link"
+      v-model="imdbLink"
+    >
+  </div>
+
+  <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Showreel link</p>
+    <input
+      type="text"
+      name="showreel_link"
+      v-model="showreelLink"
+    >
+  </div>
+
+  <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full">
+    <div class="pull-right">
+      <button class="btn btn-l" type="button" @click="$emit('cancel')">Cancel</button>
+      <button class="btn btn-primary" type="submit" :disabled="errors.any()">Save</button>
+    </div>
+  </div>
+</form>

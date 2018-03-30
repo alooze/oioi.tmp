@@ -1,0 +1,11 @@
+<div class="modal-content">
+  <img class="img-responsive img-mod-del" src="~img/dashboard/businessman.png">
+  <h2 class="modal-title">{{ title }}</h2>
+  <p class="modal-descr">
+    <slot></slot>
+  </p>
+  <div>
+    <button class="btn btn-del btn-del--mod" @click="$emit('confirm')">Yes, delete</button>
+    <button class="btn btn-not-del-mod" @click="$emit('cancel')">No, don’t delete</button>
+  </div>
+</div>

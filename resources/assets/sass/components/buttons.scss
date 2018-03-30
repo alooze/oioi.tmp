@@ -1,0 +1,82 @@
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 14px 30px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: ls(150);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: $transition-base;
+  text-align: center;
+
+  &_primary {
+    background: $green;
+    color: white;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background: $darkgreen;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &_outline-primary {
+    padding: 13px 30px;
+    background: white;
+    border: 1px solid $green;
+    color: $green;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background: $green;
+      color: white;
+    }
+  }
+
+  &_link {
+    background: none;
+    border: none;
+    color: $green;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $darkgreen;
+    }
+  }
+
+  &_sm {
+    padding: 14px 20px;
+    font-size: 11px;
+    letter-spacing: ls(150);
+    font-weight: 500;
+  }
+
+  &_block {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &_social {
+    padding: 10px 30px;
+    font-size: 13px;
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: 0;
+
+    i {
+      margin-bottom: 5px;
+      font-size: 28px;
+    }
+  }
+}

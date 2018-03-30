@@ -1,0 +1,23 @@
+.contact {
+  position: relative;
+  padding-top: 55px;
+  padding-bottom: 94px;
+}
+
+.contact__form {
+  max-width: 380px;
+  margin: 0 auto;
+  padding-top: 35px;
+}
+
+.contact__bg {
+  @include position(absolute, 0 0 -40px 0);
+  @include retina('contact-bg.png', contain, no-repeat bottom);
+  z-index: -1;
+}
+
+.contact__submit {
+  i {
+    margin-right: 10px;
+  }
+}

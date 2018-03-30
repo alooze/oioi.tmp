@@ -1,0 +1,84 @@
+<div class="dashboard-content__info">
+    <h2 class="dashboard__info-title">{{ role | capitalize}}</h2>
+
+    <div class="dashboard__info-form" v-if="persons.length > 0">
+      <div class="dashboard__info__table">
+        <div class="dashboard__info__table-div">{{ role | capitalize}} name</div>
+        <div class="dashboard__info__table-div">Email</div>
+        <div class="dashboard__info__table-div">Action</div>
+      </div>
+      <div class="dashboard__info-form__inner">
+        <ul class="dashboard__info__table-list">
+          <li v-for="person in persons">
+            <div class="dashboard__info__table-list-name">
+              {{ person.firstname }} {{ person.lastname }} <span v-if="isMe(person)">(you)</span>
+            </div>
+            <div class="dashboard__info__table-list-email">{{ person.email }}</div>
+            <div class="dashboard__info__table-list-action">
+              <button class="btn btn-edit" @click="$modal.show('add-form', {person})">Edit</button>
+              <button class="btn btn-del" @click="$modal.show('delete-dialog', {person})">Delete</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap dashboard__info-form-btn-wrap--table">
+        <button class="btn btn-secondary" @click="$modal.show('add-form')">
+          <span class="plus">+</span>Add {{ role }}</button>
+        <button class="btn btn-primary arrow">Next</button>
+      </div>
+    </div>
+
+    <div class="dashboard__info-form" v-else>
+      <div class="dashboard__info-form__inner dashboard__info-form__inner--empty">
+        <img class="img-responsive dashboard-img-team__empty" src="~img/dashboard/dashboard-team.png" width="46">
+        <p class="dashboard__empty-descr">No {{ role }} is added yet...</p>
+        <div class="justify-center">
+          <button class="btn btn-secondary" type="button" @click="$modal.show('add-form')">
+            <span class="plus">+ </span>Add {{ role }}</button>
+        </div>
+      </div>
+    </div>
+
+    <modal
+      name="add-form"
+      height="auto"
+      @before-open="beforeOpen"
+      @closed="closed"
+      scrollable
+    >
+      <add-form
+        :title="selectedPerson.id ? 'Editing ' + role : capitalizedRole"
+        @close="$modal.hide('add-form')"
+      >
+
+        <div class="tabs-wrap">
+          <span>{{ role | capitalize }} is:</span>
+          <div class="tabs-list">
+            <a
+              v-for="person in ['someone else']"
+              :class="{active: newPersonIs === person}"
+              @click="newPersonIs = person"
+            >{{ person }}</a>
+          </div>
+        </div>
+
+        <component
+          :is="addFormComponent"
+          :initialValues="selectedPerson"
+          @submit="onSubmit"
+          @cancel="$modal.hide('add-form')"
+        ></component>
+      </add-form>
+    </modal>
+
+    <modal name="delete-dialog" width="500" height="auto" @before-open="beforeOpen" @closed="closed">
+      <delete-dialog
+        :title="'Deleting ' + role"
+        @confirm="remove(selectedPerson)"
+        @cancel="$modal.hide('delete-dialog')"
+      >
+        Do you really want to delete
+        <b>{{ selectedPerson.firstname }} {{ selectedPerson.lastname }}</b> from the list?
+      </delete-dialog>
+    </modal>
+  </div>

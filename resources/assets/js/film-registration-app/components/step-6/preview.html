@@ -1,0 +1,182 @@
+<div class="modal-content modal-content--preview">
+  <div class="modal-content-inner">
+
+    <button class="modal-close" @click="$modal.hide('film-preview')">
+      <svg width="18" height="18" viewBox="0 0 13.25 13.25">
+        <path d="M956.1,3403.37l0.53,0.53L943.9,3416.63l-0.53-.53Z" transform="translate(-943.375 -3403.38)"></path>
+        <path d="M943.9,3403.37l12.728,12.73-0.53.53-12.728-12.73Z" transform="translate(-943.375 -3403.38)"></path>
+      </svg>
+    </button>
+
+    <div class="preview__top-wrap flex">
+      <div class="preview__img-wrap">
+        <img src="~img/dashboard/preview.png" alt="" class="img-responsive" width="250">
+      </div>
+      <div class="preview__top-content">
+        <h2 class="preview__title">{{ data.title }}</h2>
+        <p class="preview__subtitle">{{ data.genre }}</p>
+        <h3 class="preview__title-secondary">General Info</h3>
+        <table class="preview__top-table">
+          <tr>
+            <td>Screenplay based on</td>
+            <td>{{ data.basedOn }}</td>
+          </tr>
+          <tr>
+            <td>Project status</td>
+            <td>{{ data.projectStatus }}</td>
+          </tr>
+          <tr>
+            <td>Country of production</td>
+            <td>{{ country }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="preview__budget-wrap flex">
+      <h3 class="preview__title-secondary preview__title-secondary--budget">Budget</h3>
+      <div class="preview__budget">
+        <ul class="preview__budget-list flex">
+          <li>
+            <div>
+              <p>Total budget</p>
+              <p>{{ data.totalBudget | currency }}</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p>Financing required</p>
+              <p>{{ data.finRequired | currency }}</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p>Financing secured</p>
+              <p>{{ data.finSecured | currency }}</p>
+            </div>
+          </li>
+        </ul>
+        <div class="preview__budget-graph">
+          <p>Total budget
+            <span>{{ data.totalBudget | currency }}</span>
+          </p>
+          <ul class="preview__budget-graph-list flex-align-center">
+            <li></li>
+            <li :style="{width: data.finRequired / data.totalBudget * 100 + '%'}"></li>
+            <li :style="{width: data.finSecured / data.totalBudget * 100 + '%'}"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview__about-wrap">
+      <h3 class="preview__title-secondary">About Film</h3>
+      <div class="preview__about">
+        <h4 class="preview-small__title">Logline</h4>
+        <p>{{ data.logline }}</p>
+      </div>
+      <div class="preview__about">
+        <h4 class="preview-small__title">Synopsis</h4>
+        <p>{{ data.synopsis }}</p>
+      </div>
+      <div class="preview__about">
+        <h4 class="preview-small__title">Additional info</h4>
+        <p>{{ data.additional }}</p>
+      </div>
+    </div>
+
+    <ul class="preview__person-list flex">
+      <li>
+        <h3 class="preview__title-secondary">Producer</h3>
+        <table class="preview__person-table">
+          <tr>
+            <td>
+              <h4 class="preview-small__title">Name</h4>
+            </td>
+            <td>
+              <h4 class="preview-small__title">IMDB link</h4>
+            </td>
+          </tr>
+          <tr v-for="producer in data.producers">
+            <td>
+              <p>{{ producer.firstname }} {{ producer.lastname }}</p>
+            </td>
+            <td>
+              <button class="copy" :data-clipboard-text="producer.imdbLink" v-show="producer.imdbLink">Copy</button>
+            </td>
+          </tr>
+        </table>
+      </li>
+
+      <li>
+        <h3 class="preview__title-secondary">Director</h3>
+        <table class="preview__person-table">
+          <tr>
+            <td>
+              <h4 class="preview-small__title">Name</h4>
+            </td>
+            <td>
+              <h4 class="preview-small__title">IMDB link</h4>
+            </td>
+          </tr>
+          <tr v-for="director in data.directors">
+            <td>
+              <p>{{ director.firstname }} {{ director.lastname }}</p>
+            </td>
+            <td>
+              <button class="copy" :data-clipboard-text="director.imdbLink" v-show="director.imdbLink">Copy</button>
+            </td>
+          </tr>
+        </table>
+      </li>
+
+      <li>
+        <h3 class="preview__title-secondary">Writer</h3>
+        <table class="preview__person-table">
+          <tr>
+            <td>
+              <h4 class="preview-small__title">Name</h4>
+            </td>
+            <td>
+              <h4 class="preview-small__title">IMDB link</h4>
+            </td>
+          </tr>
+          <tr v-for="writer in data.writers">
+            <td>
+              <p>{{ writer.firstname }} {{ writer.lastname }}</p>
+            </td>
+            <td>
+              <button class="copy" :data-clipboard-text="writer.imdbLink" v-show="writer.imdbLink">Copy</button>
+            </td>
+          </tr>
+        </table>
+      </li>
+
+      <li>
+        <h3 class="preview__title-secondary">DOP (Director of Photography)</h3>
+        <table class="preview__person-table">
+          <tr>
+            <td>
+              <h4 class="preview-small__title">Name</h4>
+            </td>
+            <td>
+              <h4 class="preview-small__title">IMDB link</h4>
+            </td>
+          </tr>
+          <tr v-for="dop in data.dops">
+            <td>
+              <p>{{ dop.firstname }} {{ dop.lastname }}</p>
+            </td>
+            <td>
+              <button class="copy" :data-clipboard-text="dop.imdbLink" v-show="dop.imdbLink">Copy</button>
+            </td>
+          </tr>
+        </table>
+      </li>
+    </ul>
+  </div>
+
+  <div class="flex btn-wrap-preview">
+    <button class="btn btn-primary" @click="$modal.hide('film-preview')">CLose</button>
+  </div>
+</div>

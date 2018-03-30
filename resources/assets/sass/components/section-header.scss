@@ -1,0 +1,24 @@
+.section-header{
+  text-align: center;
+  color: $green;
+}
+
+.section-header__title {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.section-header__dash {
+  background-color: $green;
+}
+
+.section-header__lead {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: ls(150);
+
+  &_big {
+    font-size: 21px;
+    letter-spacing: ls(100);
+  }
+}

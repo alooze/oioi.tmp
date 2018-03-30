@@ -1,0 +1,141 @@
+.register {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-success {
+  padding: 25px;
+  text-align: center;
+}
+
+.register__title {
+  padding: 30px 0;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  border-bottom: 1px solid #dce7d8;
+}
+
+.register__content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  @include or-deco(64%);
+}
+
+.register__left {
+  position: relative;
+  flex: 1px;
+  padding: 0 48px 35px;
+  border-right: 1px solid #dce7d8;
+}
+
+.register__right {
+  width: 345px;
+  padding: 30px 45px 0;
+  box-sizing: border-box;
+}
+
+.register__steps {
+  position: relative;
+  @include list-unstyled();
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+
+  &:after {
+    content: '';
+    @include position(absolute, 42px null null 50%);
+    width: 128px;
+    border-top: 5px solid rgba($green, 0.5);
+    transform: translateX(-50%);
+  }
+}
+
+.register__step {
+  position: relative;
+  font-size: 13px;
+  font-weight: 500;
+  color: $green;
+  opacity: 0.5;
+
+  & + & {
+    margin-left: 45px;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.register__step-icon {
+  @include size(40px, 40px);
+  @include flex(center, center);
+  margin: 0 auto 8px;
+  background: $green;
+  border-radius: 50%;
+
+  .register__step.active & {
+    box-shadow: 0px 4px 12px 0px rgba(46, 110, 16, 0.72);
+  }
+}
+
+.register__form-who-you-are {
+  margin-bottom: 25px;
+}
+
+.register__who-you-are-text {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.register__submit {
+  margin-top: 15px;
+  min-width: 167px;
+}
+
+.register__socials-text {
+  margin-bottom: 15px;
+}
+
+.register__socials-tabs {
+  margin-bottom: 15px;
+}
+
+.register__socials-btns {
+  .btn + .btn {
+    margin-top: 15px;
+  }
+
+  i {
+    margin-bottom: 0;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+}
+
+.register__step-pane {
+  &:not(.active) {
+    display: none;
+  }
+}
+
+.register__registering-as {
+  position: relative;
+  margin-bottom: 25px;
+  text-align: center;
+
+  &:before {
+    content: '';
+    @include position(absolute, 50% 0 null 0);
+    border-top: 1px solid #dce7d8;
+  }
+}
+
+.register__registering-as-inner {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  background: white;
+}

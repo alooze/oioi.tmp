@@ -1,0 +1,73 @@
+// Provides a quick method for setting an element’s position. Use a `null` value to “skip” a side.
+@mixin position($position, $coordinates: null null null null) {
+  $offsets: (
+    top:    nth($coordinates, 1),
+    right:  nth($coordinates, 2),
+    bottom: nth($coordinates, 3),
+    left:   nth($coordinates, 4)
+  );
+
+  position: $position;
+
+  @each $offset, $value in $offsets {
+    @if is-length($value) {
+      #{$offset}: $value;
+    }
+  }
+}
+
+// Quick alignement of the flexible container's items
+@mixin flex($align-items: null, $justify-content: null, $display: flex) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+// Quick sizing
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin list-unstyled {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin retina($path, $size: auto auto, $extras: null) {
+  background: image($path) $extras;
+  background-size: $size;
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background: image2x($path) $extras;
+    background-size: $size;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    @content;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    @content;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    @content;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+}
+
+@mixin or-deco($left) {
+  &:after {
+    content: 'or';
+    @include position(absolute, 50% null null $left);
+    padding: 5px;
+    font-size: 13px;
+    color: rgba(black, 0.4);
+    background: white;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,19 @@
+// Convert photoshop letter tracking to css letter-spacing
+@function ls($value) {
+  @if not unitless($value) {
+    $value: strip-units($value);
+  }
+  @return ($value / 1000) * 1em;
+}
+
+@function image($path) {
+  @return url($images-base-path + '/' + $path);
+}
+
+@function image2x($path) {
+  @return image(str-insert($path, '@2x', str-index($path, '.')));
+}
+
+@function image-set($path) {
+  @return -webkit-image-set(image($path) 1x, image2x($path) 2x);
+}

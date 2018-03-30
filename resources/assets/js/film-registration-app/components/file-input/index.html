@@ -1,0 +1,22 @@
+<div :class="{
+  'dashboard__info-file': true,
+  'dropzone': dropzone,
+  'active': !!filename
+}">
+  <span>{{ span || 'Drag here, or' }}</span>
+  <input
+    type="file"
+    :name="name"
+    :id="name"
+    :accept="accept"
+    @change="onChange"
+    ref="input"
+  >
+  <label :class="{'block': labelBlock}" :for="name">{{ label || 'upload'}}</label>
+  <p class="form__file-descr"><slot></slot></p>
+
+  <div class="form__file-previews" v-if="filename">
+    <i class="fa fa-close" aria-hidden="true" @click="onRemoveClick"></i>
+    <span>{{ filename }}</span>
+  </div>
+</div>

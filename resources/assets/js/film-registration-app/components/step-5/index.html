@@ -1,0 +1,48 @@
+<div class="dashboard-content__info">
+  <h2 class="dashboard__info-title">Budget</h2>
+
+  <form class="dashboard__info-form" @submit.prevent="onSubmit" ref="form">
+    <div class="dashboard__info-form__inner">
+      <formgroup name="total_budget" class="dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">
+          <b>Total budget, $ </b>
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <input
+          type="text"
+          name="total_budget"
+          v-model="totalBudget"
+          v-validate="'required|decimal'"
+        >
+      </formgroup>
+      <formgroup name="fin_secured" class="dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">
+          <b>Financing secured, $ </b>
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <input
+          type="text"
+          name="fin_secured"
+          v-model="finSecured"
+          v-validate="'required|decimal|max_value:' + totalBudget"
+        >
+      </formgroup>
+      <formgroup name="fin_required" class="dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">
+          <b>Financing required, $ </b>
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <input
+          type="text"
+          name="fin_required"
+          v-model="finRequired"
+          v-validate="'required|decimal|max_value:' + totalBudget"
+        >
+      </formgroup>
+    </div>
+    <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap dashboard__info-form-btn-wrap--table">
+      <!-- <button class="btn btn-primary arrow" type="submit">Next</button> -->
+      <button class="btn btn-primary step-save-btn" type="submit" :disabled="errors.any()">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,77 @@
+.form-group {
+  position: relative;
+  margin-bottom: 40px;
+
+  .contact & {
+    margin-bottom: 28px;
+  }
+}
+
+.form-control {
+  min-height: 42px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgba($green, 0.5);
+  // letter-spacing: ls(50);
+
+  &:focus {
+    outline: none;
+  }
+
+  &_with-border {
+    padding: 10px 15px;
+    border: 1px solid rgb(220, 231, 216);
+    border-radius: 3px;
+    font-size: 14px;
+
+    &:focus {
+      border-color: $green;
+      outline: none;
+    }
+  }
+
+  .has-error & {
+    border-color: red;
+  }
+}
+
+.form-group label:not(.checkbox) {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+textarea {
+  resize: none;
+}
+
+.invalid-feedback {
+  @include position(absolute, 100% 0 null 0);
+  padding: 2px 0;
+  font-size: 14px;
+  text-align: left;
+  color: red;
+}
+
+.form-row {
+  display: flex;
+
+  .col {
+    flex: 1;
+
+    & + .col {
+      margin-left: 18px;
+    }
+  }
+}
+
+.number-fieldset {
+  display: flex;
+
+  & > *:first-child {
+    flex-shrink: 0;
+    width: 84px;
+    margin-right: 10px;
+  }
+}

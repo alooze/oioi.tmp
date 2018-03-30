@@ -1,0 +1,101 @@
+<form class="modal-content__form" @submit.prevent="onSubmit">
+  <formgroup name="firstname" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">First name</p>
+    <input
+      type="text"
+      name="firstname"
+      v-model="firstname"
+      v-validate="'required'"
+    >
+  </formgroup>
+
+  <formgroup name="lastname" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Last name</p>
+    <input
+      type="text"
+      name="lastname"
+      v-model="lastname"
+      v-validate="'required'"
+    >
+  </formgroup>
+
+  <formgroup name="email" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Email</p>
+    <input
+      type="email"
+      name="email"
+      v-model="email"
+      v-validate="'required|email'"
+    >
+  </formgroup>
+
+  <formgroup name="phone" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Mobile number</p>
+    <input
+      type="text"
+      name="phone"
+      v-model="phone"
+      v-validate="'required'"
+    >
+  </formgroup>
+
+  <formgroup name="company" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Company</p>
+    <input
+      type="text"
+      naem="company"
+      v-model="company"
+    >
+  </formgroup>
+
+  <formgroup name="website" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Website</p>
+    <input
+      type="text"
+      name="website"
+      v-model="website"
+      v-validate="'url'"
+    >
+  </formgroup>
+
+  <formgroup name="country" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">Country</p>
+    <select
+      name="country"
+      v-model="country"
+      data-choices
+      data-class-names-container-outer="choices choices_with-border"
+    >
+      <option value="" selected disabled>Choose country</option>
+      <option :value="value" v-for="label, value in countries">{{ label }}</option>
+    </select>
+  </formgroup>
+
+  <formgroup name="city" class="dashboard__info-form-wrap--half">
+    <p class="dashboard__info-form-descr">City</p>
+    <select
+      name="city"
+      v-model="city"
+      data-choices
+      data-class-names-container-outer="choices choices_with-border"
+    >
+      <option value="" selected disabled>Choose city</option>
+    </select>
+  </formgroup>
+
+  <formgroup name="imdb_link" class="dashboard__info-form-wrap--full">
+    <p class="dashboard__info-form-descr">IMDB link</p>
+    <input
+      type="text"
+      name="imdb_link"
+      v-model="imdbLink"
+    >
+  </formgroup>
+
+  <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full">
+    <div class="pull-right">
+      <button class="btn btn-l" type="button" @click="$emit('cancel')">Cancel</button>
+      <button class="btn btn-primary" type="submit" :disabled="errors.any()">Save</button>
+    </div>
+  </div>
+</form>

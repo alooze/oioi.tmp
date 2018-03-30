@@ -1,0 +1,66 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+  font-family: 'Gilroy';
+
+  &.modal-open {
+    overflow: hidden !important;
+  }
+}
+
+*{
+  &:focus{
+    outline: 0 !important;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, .h1 {
+  font-size: 56px;
+}
+
+h2, .h2 {
+  font-size: 40px;
+}
+
+.logo {
+  display: block;
+  @include size(73px, 44px);
+  @include retina('logo.png', cover);
+}
+
+.show-all {
+  text-align: center;
+
+  i {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.section {
+  padding: 0 !important;
+}
+.home-header {
+  padding-top: 0 !important;
+}
+
+.link {
+  text-decoration: none;
+  color: $green;
+
+  &:hover {
+    color: $darkgreen;
+  }
+}

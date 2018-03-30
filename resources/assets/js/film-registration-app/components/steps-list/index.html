@@ -1,0 +1,15 @@
+<div class="dashboard-content__steps">
+  <h2 class="dashboard__steps-title">Steps</h2>
+  <ul class="dashboard__steps-list">
+    <li
+      v-for="step, index in steps"
+      :class="{
+        active: index === stepIndex,
+        completed: isCompleted(index)
+      }"
+      @click="$emit('update:stepIndex', index)"
+    >
+      {{ step }}
+    </li>
+  </ul>
+</div>

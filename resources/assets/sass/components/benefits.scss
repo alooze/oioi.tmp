@@ -1,0 +1,88 @@
+.benefits {
+  position: relative;
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.benefits__bg {
+  @include position(absolute, null 0 45px 0);
+  z-index: -1;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.benefits__container {
+  max-width: 790px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.benefits__tabs {
+  @include flex(center, space-between);
+  padding: 0 35px;
+}
+
+.benefits__tab {
+  @include size(205px, 190px);
+  @include flex(center, center);
+  flex-flow: column;
+  text-align: center;
+  border-radius: 6px;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.active {
+    opacity: 1;
+    background: white;
+    box-shadow: 0px 12px 80px -20px rgba(17, 40, 7, 0.4);
+  }
+}
+
+.benefits__tab-icon {
+  margin-bottom: 10px;
+}
+
+.benefits__tab-title {
+  font-size: 21px;
+  color: $green;
+  font-weight: 500;
+}
+
+.benefits__tab-content {
+  margin-top: -15px;
+  padding: 55px 45px;
+  border-radius: 6px;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.benefits__list {
+  @include list-unstyled();
+  @include flex(null, null);
+}
+
+.benefits__item {
+  text-align: center;
+  flex: 1;
+  padding: 0;
+}
+
+.benefits__item-title {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: ls(100);
+}
+
+.benefits__item-text {
+  font-size: 16px;
+  line-height: 24px;
+}

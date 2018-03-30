@@ -1,0 +1,22 @@
+.comment {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: ls(25);
+
+  & + & {
+    margin-top: 27px;
+  }
+}
+
+.comment__header {
+  @include flex(center, space-between);
+  margin-bottom: 2px;
+}
+
+.comment__author {
+  font-weight: 600;
+}
+
+.comment__date {
+  color: #8c9c8e;
+}

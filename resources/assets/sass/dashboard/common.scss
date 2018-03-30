@@ -1,0 +1,141 @@
+@import 'mixins';
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+html,
+body {
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.modal-open {
+    overflow: hidden;
+    padding-right: 17px;
+}
+
+*{
+    &:focus{
+        outline: 0 !important;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+p,
+ol {
+    margin: 0;
+}
+
+ul,
+ol {
+    padding: 0;
+}
+
+.img-responsive {
+    @include img;
+}
+
+.text-align {
+    text-align: center;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @include clearfix;
+    color: rgb(255, 255, 255);
+    background-color: #f3f8f0;
+}
+
+.dashboard-sidebar,
+.dashboard-content {
+    float: left;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.dashboard-title {
+    font-weight: 300;
+    font-size: 28px;
+    color: rgb(140, 156, 142);
+    padding-bottom: 30px;
+    padding-left: 5px;
+}
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+body:after {
+    position: absolute;
+    left: -50000px;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    content: image('dashboard/reload-white.png') image('dashboard/cancel-white.png')
+}
+
+.copy,
+.copy-link {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8ac56f;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        color: rgb(86, 171, 47);
+    }
+}
+
+.copy-after {
+    border: 1px solid rgb(86, 171, 47);
+    min-height: 20px;
+    padding: 3px 9px 3px 9px;
+    letter-spacing: 0;
+    border-radius: 24px;
+    color: rgb(86, 171, 47);
+    text-transform: capitalize;
+    &:before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 8px;
+        background: image('/dashboard/check-arrow.png') no-repeat center;
+        background-size: contain;
+        left: -3px;
+        top: -1px;
+        position: relative;
+    }
+}
+
+.copy.copy-after {
+    padding: 0 9px 0 9px;
+    &:before {
+        top: 0;
+    }
+}

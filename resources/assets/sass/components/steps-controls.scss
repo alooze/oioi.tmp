@@ -1,0 +1,31 @@
+.steps-controls {
+  @include flex(center);
+  margin-left: -5px;
+  color: $green;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.steps-controls__control {
+  width: 22px;
+  text-align: center;
+  font-size: 21px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    color: white;
+  }
+
+  &_back:hover {
+    background: image('l-arrow-hover-bg.svg');
+  }
+
+  &_forward:hover {
+    background: image('r-arrow-hover-bg.svg');
+  }
+}
+
+.steps-controls__indicator {
+  margin: 0 8px;
+}

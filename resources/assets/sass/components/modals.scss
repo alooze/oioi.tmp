@@ -1,0 +1,39 @@
+.modal {
+  display: none;
+  @include position(fixed, 0 0 0 0);
+  z-index: 2000;
+  background: rgba(black, 0.7);
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  line-height: 100vh;
+}
+
+.modal-dialog {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 30px;
+  line-height: 1.15;
+  background: white;
+  border-radius: 5px;
+  text-align: initial;
+}
+
+.modal-close {
+  @include position(absolute, -24px -24px null null);
+  @include size(48px, 48px);
+  @include flex(center, center);
+  border-radius: 50%;
+  background: white;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    fill: #a2a2a2;
+  }
+
+  &:hover svg {
+    fill: #c4363a;
+  }
+}

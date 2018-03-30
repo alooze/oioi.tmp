@@ -1,0 +1,142 @@
+<div class="dashboard-content__info">
+  <h2 class="dashboard__info-title">Detailed Info</h2>
+
+  <form class="dashboard__info-form" @submit.prevent="onSubmit" ref="form">
+    <div class="dashboard__info-form__inner dashboard__info-form__inner--step7">
+      <formgroup name="logline" class="dashboard__info-form-wrap--full">
+        <p class="dashboard__info-form-descr">
+          Logline <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <textarea
+          name="logline"
+          v-model="logline"
+        ></textarea>
+      </formgroup>
+
+      <formgroup name="synopsis" class="dashboard__info-form-wrap--full">
+        <p class="dashboard__info-form-descr">
+          Synopsis <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <textarea
+          name="synopsis"
+          v-model="synopsis"
+        ></textarea>
+      </formgroup>
+
+      <formgroup name="additional" class="dashboard__info-form-wrap--full">
+        <p class="dashboard__info-form-descr">
+          Additional info <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <textarea
+          name="additional"
+          v-model="additional"
+        ></textarea>
+      </formgroup>
+
+      <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">Thumbnail (cover poster)
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <file-input
+          name="thumbnail"
+          accept="image/jpeg,image/png"
+          :initialFilename="thumbnail | filename"
+          :dropzone="true"
+          :labelBlock="true"
+        >Min size 600x600 px JPEG / PNG</file-input>
+      </div>
+
+      <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">Artwork of the film
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <file-input
+          name="artwork"
+          accept="application/zip,application/x-rar-compressed"
+          :initialFilename="artwork | filename"
+          :dropzone="true"
+          :labelBlock="true"
+        >Max size 10 mb <br> RAR / ZIP archives</file-input>
+      </div>
+
+      <div class="dashboard__info-form-wrap dashboard__info-form-wrap--third">
+        <p class="dashboard__info-form-descr">Script
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <file-input
+          name="script"
+          accept="application/msword,text/plain,application/pdf"
+          :initialFilename="script | filename"
+          :dropzone="true"
+          :labelBlock="true"
+        >Max size 10 mb <br>PDF / DOC(X) / TXT</file-input>
+      </div>
+
+      <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+        <p class="dashboard__info-form-descr">Finance plan
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <file-input
+          name="fin_plan"
+          accept="application/msword,text/plain,application/pdf"
+          :initialFilename="finPlan | filename"
+          :dropzone="true"
+        >Max size 10 mb • PDF / DOC(X)</file-input>
+      </div>
+
+      <div class="dashboard__info-form-wrap dashboard__info-form-wrap--half">
+        <p class="dashboard__info-form-descr">Budget (Detailed)
+          <i class="icon_info-green icon_info-green--secondary"></i>
+        </p>
+        <file-input
+          name="detailed_budget"
+          accept="application/msword,text/plain,application/pdf"
+          :initialFilename="detailedBudget | filename"
+          :dropzone="true"
+        >Max size 10 mb • PDF / DOC(X)</file-input>
+      </div>
+
+      <div class="dashboard__info-form-wrap dashboard__info-form-wrap--full flex">
+        <input
+          type="checkbox"
+          name="terms"
+          id="terms"
+          v-model="terms"
+        >
+        <label for="terms"></label>
+        <div class="checkbox-descr">
+          <p>I have read and agree with the
+            <a href="#">"Terms & Conditions & NDA"</a>
+          </p>
+          <p>Once you’ve agreed with the terms – you can’t unselect the check-box</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap dashboard__info-form-btn-wrap--table" v-if="allStepsCompleted">
+      <button class="btn btn-secondary btn-secondary--preview" type="button" @click="$modal.show('film-preview')">Preview</button>
+      <button class="btn btn-primary btn-primary--submit" type="button" @click="$modal.show('submit-film-dialog')">Submit film</button>
+    </div>
+
+    <div class="dashboard__info-form-wrap dashboard__info-form-btn-wrap dashboard__info-form-btn-wrap--table" v-else>
+      <button class="btn btn-primary step-save-btn" type="submit">Save</button>
+    </div>
+  </form>
+
+  <modal name="film-preview" width="868" height="auto" scrollable>
+    <film-preview></film-preview>
+  </modal>
+
+  <modal name="submit-film-dialog" width="500" height="auto">
+    <div class="modal-content modal-content--secondary">
+      <img class="img-responsive img-mod-del" src="~img/dashboard/movie-clapper-open.png" width="53">
+      <h2 class="modal-title modal-title--secondary">Submitting film</h2>
+      <p class="modal-descr">You won’t be able to edit this film later anymore.
+        <br> Do you really want to submit it?</p>
+      <div>
+        <button class="btn btn-l" @click="$modal.hide('submit-film-dialog')">No, not now</button>
+        <button class="btn btn-primary btn-primary--submit" @click="submitFilm">Yes, submit</button>
+      </div>
+    </div>
+  </modal>
+</div>
